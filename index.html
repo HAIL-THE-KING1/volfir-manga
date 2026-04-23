@@ -11,6 +11,13 @@
     <!-- ربط ملف الستايل الخاص بنا -->
     <link rel="stylesheet" href="style.css">
 </head>
+    <script>
+    var password = "Raghad Aws Muhannad"; // ضع كلمة المرور هنا
+    var input = prompt("يرجى إدخال كلمة المرور لدخول الموقع:");
+    if (input != password) {
+        window.location.href = "https://google.com"; // إذا كانت كلمة المرور خطأ سيتم تحويله لجوجل
+    }
+</script>
 <body>
 
     <!-- بداية الهيدر -->

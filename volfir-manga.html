@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volfir - Manga Site</title>
+    <!-- ربط مكتبة  الأيقونات-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- ربط ستايل Swiper للسلايدر -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- ربط ملف الستايل الخاص بنا -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- بداية الهيدر -->
+    <header class="pill-header">
+        <!-- الشعار -->
+        <div class="header-logo">
+            <img src="img/upscaled-image-1769450689600 (1).png" alt="Logo">
+        </div>
+
+        <!-- الروابط -->
+        <nav class="header-nav">
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Lib...</a></li>
+                <li><a href="#">Manga...</a></li>
+                <li><a href="#">New...</a></li>
+            </ul>
+        </nav>
+
+        <!-- الأزرار الجانبية (البحث + زر دخول مثلاً) -->
+        <div class="header-actions">
+            <div class="search-icon">
+                <i class="ri-search-line"></i>
+            </div>
+            <a href="#" class="login-btn">later</a>
+            <a href="#" class="signup-btn">later</a>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <!-- بداية السلايدر ثلاثي الأبعاد -->
+
+ <!-- استبدل قسم slider-container القديم بهذا بالكامل -->
+    <section class="cyber-slider-outer">
+        <div class="slider-wrapper">
+            <!-- البطاقة اليسرى -->
+            <div class="tech-card card-prev" id="prevCard" onclick="prevSlide()">
+                <div class="visual-frame">
+                    <div class="corner top-left"></div><div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+                    <div class="frame-content"><img src="img/e79483f63869b6d29683af2ae9f3fa75.jpg" alt=""></div>
+                    <a href="#" class="view-live-btn">VIEW</a>
+                </div>
+                <div class="details-section">
+                    <div class="title-row">
+                        <h2 class="project-title" id="prevTitle">...</h2>
+                        <div class="dotted-line"></div>
+                    </div>
+                    <p class="project-subtitle" id="prevSub">...</p>
+                    <div class="bottom-tech-bar"><div class="bar-line"></div><div class="bar-active"></div></div>
+                </div>
+            </div>
+
+            <div class="nav-arrow" onclick="prevSlide()">&#10094;</div>
+
+            <!-- البطاقة الوسطى -->
+            <div class="tech-card card-active" id="activeCard">
+                <div class="visual-frame" id="activeFrame">
+                    <div class="corner top-left"></div><div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+                    <div class="frame-content"><img src="img/3700cea7453e06ac3cbb49d5f41fecb4.jpg" alt=""></div>
+                    <a href="#" class="view-live-btn">VIEW</a>
+                </div>
+                <div class="details-section">
+                    <div class="title-row">
+                        <h2 class="project-title" id="activeTitle">...</h2>
+                        <div class="dotted-line"></div>
+                    </div>
+                    <p class="project-subtitle" id="activeSub">...</p>
+                    <div class="bottom-tech-bar"><div class="bar-line"></div><div class="bar-active"><div class="bar-indicator"></div></div></div>
+                </div>
+            </div>
+
+            <div class="nav-arrow" onclick="nextSlide()">&#10095;</div>
+
+            <!-- البطاقة اليمنى -->
+            <div class="tech-card card-next" id="nextCard" onclick="nextSlide()">
+                <div class="visual-frame">
+                    <div class="corner top-left"></div><div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+                    <div class="frame-content"><img src="img/312fe6d3cce811003918e31efc2afcf1.jpg" alt=""></div>
+                    <a href="#" class="view-live-btn">VIEW</a>
+                </div>
+                <div class="details-section">
+                    <div class="title-row">
+                        <h2 class="project-title" id="nextTitle">...</h2>
+                        <div class="dotted-line"></div>
+                    </div>
+                    <p class="project-subtitle" id="nextSub">...</p>
+                    <div class="bottom-tech-bar"><div class="bar-line"></div><div class="bar-active"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+   
+    <!-- ========================================== -->
+    <!-- بداية قسم الـ 7 بطاقات (تحت السلايدر) -->
+    <!-- ========================================== -->
+    <section class="seven-cards-section">
+        <!-- عنوان بسيط -->
+        <h2 class="section-heading">MANHWA <span style="color: #ff3b3b;">.</span></h2>
+
+        <!-- الحاوية التي تحمل الـ 7 بطاقات -->
+        <div class="grid-7-columns">
+            
+            <!-- كارت 1 -->
+           
+        <div class="manga-card">
+            <div class="card-cover">
+                <img src="img/fd9f822a12cd2c290fd7880d2067a739.jpg" alt="">
+            </div>
+            <div class="card-details">
+                <h3 class="card-title">Bad Born Blood</h3>
+            </div>
+        </div>
+
+            <!-- كارت 2 -->
+          
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/fd9c1e985330e9437e9fae80113e0679.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">The Dark Magician Transmigrates After 66666 Years</h3>
+                </div>
+            </div>
+
+            <!-- كارت 3 -->
+                
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/fb7d4ad3763eecf4e094d52c0f4b4355.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">The Max-Level Player's 100th Regression</h3>
+                   
+                </div>
+            </div>
+
+
+            <!-- كارت 4 -->
+           
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/f3c8cafe6a046d6056696a67ee287192.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Swordmaster's Youngest Son</h3>
+                    
+                </div>
+            </div>
+
+
+            <!-- كارت 5 -->
+          
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/eafd7ade424dde3b87f16f014f6544a3.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Above Your Head</h3>
+                    
+                </div>
+            </div>
+
+
+
+            <!-- كارت 6 -->
+        
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/e827bbf09d5b434648663bb4c09b49d5.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">The Return of the Disaster-Class Death Knight</h3>
+                   
+                </div>
+            </div>
+
+
+            <!-- كارت 7 -->
+           
+                <div class="manga-card">
+                    <div class="card-cover">
+                        <img src="img/e79483f63869b6d29683af2ae9f3fa75.jpg" alt="">
+                    </div>
+                    <div class="card-details">
+                        <h3 class="card-title">The Lord's Coins Aren't Decreasing?!</h3>
+                        
+                    </div>
+                </div>
+
+
+              
+            
+
+
+
+
+
+
+
+
+              <!-- كارت 1 -->
+                
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/e2e0906c357108231e891c0e979dfedd.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Undead Master</h3>
+                    <
+                </div>
+            </div>
+
+
+
+            <!-- كارت 2 -->
+          
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/bef89c7558b8943695173b091df63863.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">The Legendary Youngest Son of the Marquis House</h3>
+                  
+                </div>
+            </div>
+
+
+
+            <!-- كارت 3 -->
+        
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/be2d06b29319b4297265d44d8c9609e1.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Youngest Scion of the Mages</h3>
+                    
+                </div>
+            </div>
+
+
+            <!-- كارت 4 -->
+          
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/ae26b3baa2893084b4fa68b59d94b52d.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Memorize</h3>
+                 
+                </div>
+            </div>
+
+
+            <!-- كارت 5 -->
+          
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/a60d8a2138f5722febe0505caa14608f.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Return of the Predator Ranker</h3>
+                  
+                </div>
+            </div>
+
+
+
+            <!-- كارت 6 -->
+        
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/901656ba8c013d8b7dcaafe80b0a915a.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Your Talent is Mine</h3>
+                   
+                </div>
+            </div>
+
+
+            <!-- كارت 7 -->
+        
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/8c3976dd0ce5502ac79d4c778d5e66c4.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">The Villain Wants to Live</h3>
+                  
+                </div>
+            </div>
+
+
+
+            
+              <!-- كارت 1 -->
+                
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/8026d1ac64822ded40d1889d17c1c0e8.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">I Became the Youngest Prince in the Novel</h3>
+                    
+                </div>
+            </div>
+
+
+
+            <!-- كارت 2 -->
+          
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/7aa2d0a12a9a3663d1b3a5a39b8ead56.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">The Clairvoyant Mage's Dungeon Strategy</h3>
+                  
+                </div>
+            </div>
+
+
+
+            <!-- كارت 3 -->
+        
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/70bf143643cbc9512e62ac8ddf04ee3e.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Pick Me Up, Infinite Gacha</h3>
+                
+                </div>
+            </div>
+
+
+            <!-- كارت 4 -->
+          
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/6734d2fde00c1d8b88627a86ad1fb498.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Terminally-Ill Genius Dark Knight</h3>
+                  
+                </div>
+            </div>
+
+
+            <!-- كارت 5 -->
+          
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/65ac5d186c00f0409d87e818582fbe42.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">Damn Reincarnation</h3>
+                   
+                </div>
+            </div>
+
+
+
+            <!-- كارت 6 -->
+        
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/5f6b1535306181365cf9479cd9ab9147.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">The Blind Genius of the Magic Academy</h3>
+                    
+                </div>
+            </div>
+
+
+            <!-- كارت 7 -->
+        
+            <div class="manga-card">
+                <div class="card-cover">
+                    <img src="img/4ef453444748bdb334a9d05dea355641.jpg" alt="">
+                </div>
+                <div class="card-details">
+                    <h3 class="card-title">The Divine Spear Becomes a Ruined Noble</h3>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- بداية الفوتر -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- بداية الفوتر الجديد (Veed Style) -->
+    <footer class="mega-footer">
+        <div class="footer-content">
+            
+            <!-- القسم الأيسر: الشعار والمعلومات -->
+            <div class="footer-brand-info">
+                
+                
+                <!-- أيقونات التواصل -->
+                <div class="social-circles">
+                   
+                    <a href="https://www.youtube.com/channel/UCWo82kOGCySqjdIQgJNTZHA"><i class="ri-youtube-fill"></i></a>
+                    
+                </div>
+
+                <div class="brand-desc">
+                    <h5>VOLFIR</h5>
+                    <p>Enjoy to read manhwa in manhwa volfir. </p>
+                </div>
+
+            </div>
+
+            <!-- القسم الأيمن: روابط الشبكة -->
+            <div class="footer-links-grid">
+                
+                <!-- عمود 1 -->
+                <div class="link-column">
+                    <h4>Manga source</h4>
+                    <a href="#">Action</a>
+                    <a href="#">Adventure</a>
+                    <a href="#">Comedy</a>
+                    <a href="#">Drama</a>
+                    <a href="#">Fantasy</a>
+                    <a href="#">Horror</a>
+                </div>
+
+                <!-- عمود 2 -->
+                <div class="link-column">
+                    <h4>.....</h4>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                </div>
+
+                <!-- عمود 3 -->
+                 <div class="link-column">
+                    <h4>.....</h4>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                </div>
+
+                <!-- عمود 4 -->
+                 <div class="link-column">
+                    <h4>.....</h4>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                    <a href="#">.....</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- النص الضخم في الأسفل -->
+        <div class="huge-footer-text">
+            VOLFIR
+        </div>
+    </footer>
+        
+    
+
+    </div>
+
+    <!-- الشريط السفلي للحقوق -->
+    <div class="footer-bottom">
+        <p>            </p>
+    </div>
+</footer>
+
+
+    
+
+    <!-- ربط ملفات الجافاسكريبت -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+/* ========================================= */
+/* 1. استيراد وتعريف الخطوط */
+/* ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400&display=swap');
+
+@font-face {
+    font-family: 'Windorse';
+    src: url('fonts/WINDORSERegular\ \(1\).ttf'); /* تأكد أن المسار صحيح */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ========================================= */
+/* 2. إعدادات عامة (Reset) */
+/* ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+
+
+
+/* ========================================= */
+/* إضافة رسمة خلفية عملاقة (Watermark) */
+/* ========================================= */
+body::before {
+    content: "";
+    position: fixed; /* لتظل ثابتة عند النزول للأسفل */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 👇 ضع رابط صورتك هنا */
+    background-image: url('img/1.jpg'); 
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* اجعلها cover لتملأ الشاشة، أو contain لتظهر كاملة في الوسط */
+    
+    /* 👇 هنا تتحكم في "خفوت" الصورة */
+    opacity: 0.04; /* رقم صغير جداً (5%) لتكون خفيفة وغير مزعجة */
+    
+    /* 👇 هذا السطر هو الأهم: يضعها خلف كل العناصر */
+    z-index: -1; 
+    
+    /* لضمان عدم تداخلها مع الماوس */
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* 3. تنسيق الهيدر (ستايل الزجاج الشفاف) */
+/* ========================================= */
+/* ========================================= */
+/* 3. تنسيق الهيدر الجديد (Floating Pill Style) */
+/* ========================================= */
+.pill-header {
+    position: fixed;
+    top: 20px; /* مسافة من أعلى الشاشة ليبدو عائماً */
+    left: 50%;
+    transform: translateX(-50%); /* لتوسيط العنصر تماماً */
+    width: 90%; /* العرض ليس كاملاً */
+    max-width: 1100px; /* أقصى عرض حتى لا يصبح عريضاً جداً في الشاشات الكبيرة */
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 1000;
+    
+    /* ستايل الزجاج والكبسولة */
+    background: rgba(20, 20, 20, 0.7); /* لون داكن شفاف */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 50px; /* حواف دائرية بالكامل مثل الكبسولة */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* حدود خفيفة جداً */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* ظل ليعطي عمق */
+}
+
+/* الشعار */
+.header-logo img {
+    height: 60px; /* تصغير الشعار ليتناسب مع الكبسولة */
+    width: auto;
+    display: block;
+}
+
+/* القائمة */
+.header-nav .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav .nav-links a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif; /* خط أوضح للقوائم الصغيرة */
+}
+
+.header-nav .nav-links a:hover, 
+.header-nav .nav-links a.active {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* الأزرار الجانبية (بحث + تسجيل دخول) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-icon {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-icon:hover {
+    color: #ff3b3b;
+}
+
+/* أزرار الدخول والتسجيل (تشبه الصورة) */
+.login-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.signup-btn {
+    text-decoration: none;
+    background-color: #ff3b3b; /* لون موقعك الأحمر */
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #d42c2c;
+    box-shadow: 0 0 15px rgba(255, 59, 59, 0.4);
+}
+
+/* إخفاء القائمة في الموبايل (مؤقتاً للحفاظ على الشكل) */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+    .pill-header {
+        padding: 0 20px;
+    }
+}
+
+.logo img {
+    height: 100px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 20px;
+    font-family: 'Windorse', sans-serif !important;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: white;
+}
+
+.search-icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ========================================= */
+/* 4. تنسيق السلايدر (Slider) */
+/* ========================================= */
+/* تنسيق الحاوية الخارجية للسلايدر لضمان عدم تداخلها مع الهيدر */
+.cyber-slider-outer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px; /* لتجنب الهيدر العائم */
+    background-color: transparent; /* 👈 هنا التغيير: جعلناها شفافة */
+    overflow: hidden; 
+    position: relative; /* لضمان الترتيب الصحيح */
+    z-index: 1; /* لتكون فوق الخلفية لكن تحت الهيدر */
+}
+
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    width: 100%;
+}
+
+/* --- الأسهم --- */
+.nav-arrow {
+    color: #444;
+    font-size: 50px;
+    font-weight: 100;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+    z-index: 20;
+    padding: 0 15px;
+}
+.nav-arrow:hover { color: #ff3b3b; text-shadow: 0 0 15px #ff3b3b; transform: scale(1.1); }
+
+/* --- تصميم البطاقة --- */
+.tech-card {
+    width: 380px; /* صغرت العرض قليلاً ليناسب الشاشات */
+    font-family: 'Oswald', sans-serif;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
+    flex-shrink: 0;
+}
+
+.card-active { z-index: 10; transform: translateZ(0) rotateY(0deg) scale(1); opacity: 1; filter: brightness(1); margin: 0 10px; }
+.card-next { transform: translateX(-50px) translateZ(-120px) rotateY(20deg) scale(0.85); opacity: 0.7; z-index: 1; filter: brightness(0.4) blur(1px); cursor: pointer; }
+.card-prev { transform: translateX(50px) translateZ(-120px) rotateY(-20deg) scale(0.85); opacity: 0.7; z-index: 1; filter: brightness(0.4) blur(1px); cursor: pointer; }
+
+/* الإطار والوميض */
+.visual-frame {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background-color: #000;
+    border: 1px solid #1a1a1a;
+    margin-bottom: 25px;
+}
+
+@keyframes flash { 0% { background-color: #222; } 100% { background-color: #000; } }
+.flash-effect { animation: flash 0.2s; }
+
+.corner { position: absolute; width: 15px; height: 15px; border: 2px solid #ff3b3b; pointer-events: none; }
+.top-left { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.top-right { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.bottom-right { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+/* نصوص البطاقة */
+.publish-text { position: absolute; top: 20px; left: 20px; color: #fff; font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; }
+.view-live-btn { position: absolute; bottom: 20px; right: 20px; border: 1px solid #444; color: #fff; padding: 8px 15px; font-size: 10px; text-decoration: none; background: rgba(0,0,0,0.9); transition: 0.3s; }
+.view-live-btn:hover { border-color: #ff3b3b; color: #ff3b3b; }
+.project-title { color: #ff3b3b; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; }
+.dotted-line { flex-grow: 1; border-bottom: 2px dotted #ff3b3b; opacity: 0.5; position: relative; top: -5px; }
+.project-subtitle { color: #ccc; font-size: 11px; font-family: 'Share Tech Mono', monospace; margin-top: 5px; }
+
+/* شريط التكنولوجيا السفلي */
+.bottom-tech-bar { margin-top: 30px; width: 100%; height: 10px; position: relative; display: flex; align-items: center; }
+.bar-line { width: 100%; height: 1px; background-color: #333; position: absolute; }
+.bar-active { width: 90%; height: 1px; background-color: #ff3b3b; position: relative; margin: 0 auto; }
+.bar-active::before, .bar-active::after { content: ''; position: absolute; width: 40px; height: 4px; background-color: #ff3b3b; top: -1.5px; }
+.bar-active::before { left: 0; } .bar-active::after { right: 0; }
+
+.frame-content {
+    width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;
+    color: #333; font-family: 'Share Tech Mono'; background: radial-gradient(circle, #111 0%, #000 100%);
+}
+
+/* أضف هذا في ملف style.css */
+.frame-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* يملأ الإطار بالكامل */
+    object-position: top center; /* يركز على الجزء العلوي والوسط من الصورة */
+}
+
+/* ========================================= */
+/* 5. تنسيق قسم الشبكة (7 Cards Grid) */
+/* ========================================= */
+.seven-cards-section {
+    padding: 40px 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 4px solid #ff3b3b;
+}
+
+/* الحاوية الرئيسية للشبكة */
+.grid-7-columns {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;      
+    row-gap: 30px;  
+    align-items: start; /* 👈 الإضافة هنا لمنع تمدد الصورة */
+}
+/* تصميم الكارت الواحد (الصورة + النص أسفلها) */
+.manga-card {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.manga-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.card-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.manga-card:hover .card-cover img {
+    transform: scale(1.05);
+}
+
+/* النصوص أسفل كارت الشبكة */
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Windorse', sans-serif;
+    
+    /* 👈 التعديلات هنا لترتيب النص الطويل */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+    line-height: 1.3; 
+    min-height: 20px; 
+}
+.card-info {
+    color: #888888;
+    font-size: 11px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ff3b3b;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* التجاوب للشبكة (Responsive) */
+@media (max-width: 1200px) {
+    .grid-7-columns {
+        grid-template-columns: repeat(5, 1fr); /* 5 صور في اللابتوب الصغير */
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-7-columns {
+        grid-template-columns: repeat(4, 1fr); /* 4 صور في التابلت */
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-7-columns {
+        grid-template-columns: repeat(3, 1fr); /* 3 صور في الموبايل */
+    }
+}
+
+/* ========================================= */
+/* 6. تنسيق الفوتر (Footer) */
+/* ========================================= */
+
+.mega-footer {
+    background-color: #111; /* خلفية داكنة */
+    color: #fff;
+    padding-top: 60px;
+    padding-bottom: 70px; /* النص الكبير سيلامس الأسفل */
+    overflow: hidden; /* لمنع ظهور شريط تمرير جانبي بسبب النص الكبير */
+    font-family: 'Poppins', sans-serif;
+    border-top: 1px solid #222;
+    direction: ltr; /* التصميم يبدو أفضل من اليسار لليمين */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    margin-bottom: 60px;
+}
+
+/* --- القسم الأيسر (براند) --- */
+.footer-brand-info {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 40px;
+}
+
+.lang-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.social-circles {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.social-circles a {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-circles a:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.brand-desc h5 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.brand-desc p {
+    font-size: 13px;
+    color: #aaa;
+    max-width: 250px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #666;
+}
+
+/* --- القسم الأيمن (الروابط) --- */
+.footer-links-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+}
+
+.link-column h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.link-column a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.link-column a:hover {
+    color: #ff3b3b; /* لون موقعك الأحمر عند التحويم */
+}
+
+/* --- النص الضخم (VOLFIR) --- */
+.huge-footer-text {
+    font-size: 23vw; /* حجم ضخم يعتمد على عرض الشاشة */
+    font-weight: 900;
+    line-height: 0.75;
+    text-align: center;
+    color: #fff;
+    letter-spacing: -5px; /* تقليص المسافة بين الحروف */
+    user-select: none; /* منع تحديد النص */
+    width: 100%;
+    margin-bottom: -10px; /* إزالة المسافة السفلية */
+    font-family: 'Oswald', sans-serif; /* يفضل خط Oswald للنصوص الضخمة */
+}
+
+/* التجاوب للموبايل */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    
+    .footer-brand-info {
+        margin-bottom: 50px;
+    }
+
+    .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr); /* عمودين في الموبايل */
+    }
+    
+    .huge-footer-text {
+        font-size: 26vw; /* تكبير النص أكثر في الموبايل ليملأ الشاشة */
+    }
+}
+
+
